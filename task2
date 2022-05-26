@@ -1,0 +1,3 @@
+create table if not exists Executors (ID_Executors serial primary key, FIO_Executors varchar(80) not null, Alias_Executors varchar(80) not null);
+create table if not exists Albums (ID_Albums serial primary key, IDExecutors_Albums integer not null, Name_Album varchar(120) not null, Year_Album integer not null, FOREIGN KEY (IDExecutors_Albums) REFERENCES Executors(ID_Executors));
+create table if not exists Track (ID_Track serial primary key, IDAlbums_Track integer not null, Name_Track varchar(80) not null, Time_Track integer not null, FOREIGN KEY (IDAlbums_Track) REFERENCES Albums(ID_Albums));
